@@ -7,4 +7,5 @@ public:
 
     Editor();
     void loop();
+    void fillingDocument();
 };

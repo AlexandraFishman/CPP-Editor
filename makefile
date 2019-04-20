@@ -14,7 +14,7 @@ main.o: main.cpp
 Document.o: Document.cpp Document.h
 		g++ -std=c++0x --compile Document.cpp -o Document.o
 
-Editor.o: Editor.cpp Editor.h
+Editor.o: Editor.cpp Editor.h Document.h
 		g++ -std=c++0x --compile Editor.cpp -o Editor.o
 
 clean: 
