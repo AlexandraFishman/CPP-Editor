@@ -1,8 +1,10 @@
 #include "Editor.h"
+#include <fstream>
 #include <iostream>
+
  
-int main(int argc, char const *argv[])
-{
+int main()
+{   
     Editor e;
     e.loop();
     return 0;

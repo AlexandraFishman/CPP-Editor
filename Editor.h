@@ -1,10 +1,10 @@
+#include "Document.h"
+
 class Editor{
 public:
     int currentLine;
+    Document d;
 
-    Editor(){
-        this->currentLine =0;
-    }
-
-    void loop(){}
+    Editor();
+    void loop();
 };

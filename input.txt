@@ -43,3 +43,4 @@ s/strawberries/plums/
 %p
 Q
 
+makefile:6: recipe for target 'all' failed
