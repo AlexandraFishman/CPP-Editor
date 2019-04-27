@@ -9,7 +9,7 @@ class Document
 
     Document()
     {
-        this->documentLines = {"qwe", "edc", "asd", "VERY funnnnnyyyynynynynynyy", "fgfgdfbf","fcjj","3"};
+        this->documentLines = {};
     }
 
     void gotP(int currentLine);
