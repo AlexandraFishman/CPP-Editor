@@ -51,14 +51,29 @@ void Editor::loop()
             cout << this->currentLine << endl;
         }
 
-        if ((line).compare("p") == 0)
+        if ((line).compare("p") == 0)//p function
         {
             this->d.gotP(this->currentLine);
 
         }
+        if((line).compare("%p") == 0){//%p function
+            this->d.pp();
+        }
+        if((line).compare("n") == 0){//n function
+            this->d.n(this->currentLine);
+        }
+        if((line).compare("d") == 0){//d function
+            this->d.d(this->currentLine);
+        }
+        
+        if((line).compare("a") == 0){//a function
+            this->d.a(this->currentLine);
+        }
+
         // cout << *this->d.documentLines.front() <<endl;
         getline(cin, line);
     }
+    exit(0);//Q "function"
 }
 
 /////////
