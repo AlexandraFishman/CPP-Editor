@@ -10,8 +10,8 @@ void Document::gotP(int requestedLine)
 }
 //%this->documentLines.size()
 
-void Document::n(int currentLine){//NTT
-    cout<< currentLine <<"    " << this->documentLines[currentLine] <<endl;
+void Document::n(int currentLine){
+    cout<< currentLine + 1 <<"    " << this->documentLines[currentLine]<<endl;
 }
 
 void Document::pp(){//NTT
@@ -20,30 +20,59 @@ void Document::pp(){//NTT
     }
 }
 
-//void Document::i(int currentLine){}//use insert
-
-void Document::a(int& currentLine){//NTT
+void Document::i(int& currentLine){
+    currentLine--;
     string newLine;
-    getline(cin,newLine);
-    while(newLine.compare(".") != 0){
-        this->documentLines.push_back(newLine);
+    while(getline(cin,newLine) && newLine.compare(".") != 0){
+        if(this->documentLines.size() <= currentLine){
+            this->documentLines.push_back(newLine);
+        }
+        else{
+            this->documentLines.insert(this->documentLines.begin()+currentLine,newLine);
+        }
         currentLine++;
-        getline(cin,newLine);
+    }
+    currentLine++;
+}
+
+void Document::a(int& currentLine){
+    string newLine;
+    while(getline(cin,newLine) && newLine.compare(".") != 0){
+        if(this->documentLines.size() <= currentLine){
+            this->documentLines.push_back(newLine);
+        }
+        else{
+            vector <string>::iterator iter = this->documentLines.begin();
+            this->documentLines.insert(iter + currentLine , newLine);
+        }
+        currentLine++; 
     }
 }
 
-//void Document::c(int currentLine){}//use swap
+void Document::c(int& currentLine){
+    string newLine;
+    while(getline(cin,newLine) && newLine.compare(".") != 0){
+        this->documentLines[currentLine - 1] = newLine;
+    }
+}
 
-void Document::d(int& currentLine){//NTT
-    this->documentLines.erase(this->documentLines.begin() + currentLine -1);//MAYBE NEED TO DO WITHOUT -1
+void Document::d(int& currentLine){
+    this->documentLines.erase(this->documentLines.begin() + currentLine);
     currentLine--;
 }
 
-//void Document::text(int currentLine){}//maybe use reverse iterator and regular iterator?
-//like if we use regular iterator until the end and we didnt find the string, use reverse iterator to go from currentLine to the beginning
+void Document::text(string currentString, int currentLine){
+    for(int i = currentLine ; i < this->documentLines.size(); i++){//current line -> end
+        if(this->documentLines.at(i).find(currentString) != string::npos){
+            cout << this->documentLines.at(i) << endl;//might not need +1
+        }
+    }
+    for(int i = 0; i < currentLine; i++){//beginning -> current line
+        if(this->documentLines.at(i).find(currentString) != string::npos){
+            cout << this->documentLines.at(i) << endl;//might not need +1
+        }
+    }
 
-/*
-void Document::Q(){//NTT
-    exit(0);
-}*/
+}
+
 

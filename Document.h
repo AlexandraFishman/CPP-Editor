@@ -24,11 +24,11 @@ class Document
     void a(int& currentLine);//add new text after the current line until we get . as input
     //DONT KNOW IF WE NEED TO GET SOMETHING IN THE FUNC ITSELF, MAYBE JUST GET cin AND CHECK? Ask Arbel
 
-    void c(int currentLine);//Changes the current line to newLine
+    void c(int& currentLine);//Changes the current line to newLine
 
     void d(int& currentLine);//deletes current line, need to get from Editor
 
-    void text(int currentLine);//searches for the input from current line all the way to current line again
+    void text(string currentString, int currentLine);//searches for the input from current line all the way to current line again
     //if we reached the end, go to the beginning and search until we reach current line again.
     //maybe need to return something? Ask Arbel or something
 

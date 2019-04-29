@@ -37,7 +37,7 @@ void Editor::loop()
 {
     string line;
     getline(cin, line);
-
+    regex text(R"(/\w+)");
     while (line.compare("Q") != 0)
     {
         // if (line.compare("a") == 0)
@@ -48,7 +48,7 @@ void Editor::loop()
         if (isNumber(line))
         {
             this->currentLine = stoi(line);
-            cout << this->currentLine << endl;
+            //cout << this->currentLine << endl;
         }
 
         if ((line).compare("p") == 0)//p function
@@ -68,6 +68,16 @@ void Editor::loop()
         
         if((line).compare("a") == 0){//a function
             this->d.a(this->currentLine);
+        }
+        if((line).compare("i") == 0){//i function
+            this->d.i(this->currentLine);
+        }
+        if((line).compare("c") == 0){//c function
+            this->d.c(this->currentLine);
+        }
+        if(regex_match(line,text)){// /text function compare line
+            string str = line.substr(1);
+            this->d.text(str, this->currentLine);
         }
 
         // cout << *this->d.documentLines.front() <<endl;

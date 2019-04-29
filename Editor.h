@@ -1,4 +1,5 @@
 #include "Document.h"
+#include <regex>
 
 class Editor{
 public:
