@@ -38,6 +38,7 @@ void Editor::loop()
     string line;
     getline(cin, line);
     regex text(R"(/\w+)");
+    regex sOldNew(R"(s/\w+/\w+/?)");
     while (line.compare("Q") != 0)
     {
         // if (line.compare("a") == 0)
@@ -80,15 +81,25 @@ void Editor::loop()
             this->d.text(str, this->currentLine);
         }
 
-        // cout << *this->d.documentLines.front() <<endl;
+        if(regex_match(line, sOldNew)){
+            string originalInput=line.substr(2);
+            int find1 =originalInput.find("/");
+            string first= originalInput.substr(0,find1);
+            int find2=originalInput.rfind("/");
+            string second;
+            if(find2==find1){
+                second= originalInput.substr(find1+1);
+                cout << second << endl;
+            }
+            else{
+                second= originalInput.substr((find1+1),find2-find1-1);
+                                cout << second << endl;
+
+            }
+            this->d.replaceOldWithNew(first,second,this->currentLine-1);
+}
         getline(cin, line);
     }
     exit(0);//Q "function"
 }
 
-/////////
-// for(int i=0; i<this->d.documentLines.size(); i++) {
-//     cout << *this->d.documentLines.back() <<endl;
-//     this->d.documentLines.pop_back();
-// }
-///////

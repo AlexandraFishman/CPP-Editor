@@ -62,7 +62,7 @@ void Document::d(int& currentLine){
 }
 
 void Document::text(string currentString, int currentLine){
-    for(int i = currentLine ; i < this->documentLines.size(); i++){//current line -> end
+    for(int i = currentLine; i < this->documentLines.size(); i++){//current line -> end
         if(this->documentLines.at(i).find(currentString) != string::npos){
             cout << this->documentLines.at(i) << endl;//might not need +1
         }
@@ -73,6 +73,22 @@ void Document::text(string currentString, int currentLine){
         }
     }
 
+}
+
+void Document::replaceOldWithNew(string oldData, string newData, int currentLine){
+    // cout << "1" << endl;
+    // cout << "currentLine=" << currentLine << endl;
+    int check= this->documentLines.at(currentLine).find(oldData);
+    // cout << "2" << endl;
+        if(check!=-1){
+            // cout << "2" << endl;
+            this->documentLines.at(currentLine).replace(check,oldData.size(),newData);
+            // cout << "3" << endl;
+        }
+        else{
+            cout<<"?"<<endl;
+            exit(0);
+}
 }
 
 

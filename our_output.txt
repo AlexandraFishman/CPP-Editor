@@ -1,0 +1,9 @@
+you were
+8
+3    the strawberries
+6    the icebox
+10
+9    that were in
+the strawberries
+plums
+?

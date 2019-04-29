@@ -34,4 +34,7 @@ class Document
 
     //void Q();//Quit without saving (Arbel said to do exit(0))
 
+    void replaceOldWithNew(string oldData, string newData, int currentLine); //replace old string with a new one 
+
+
 };
