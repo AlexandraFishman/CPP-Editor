@@ -11,7 +11,7 @@ void Document::gotP(int requestedLine)
 //%this->documentLines.size()
 
 void Document::n(int currentLine){
-    cout<< currentLine + 1 <<"    " << this->documentLines[currentLine]<<endl;
+    cout<< currentLine <<"    " << this->documentLines[currentLine-1]<<endl;
 }
 
 void Document::pp(){//NTT

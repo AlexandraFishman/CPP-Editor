@@ -49,7 +49,7 @@ void Editor::loop()
         if (isNumber(line))
         {
             this->currentLine = stoi(line);
-            //cout << this->currentLine << endl;
+            cout << this->d.documentLines[this->currentLine - 1] << endl;
         }
 
         if ((line).compare("p") == 0)//p function
@@ -89,12 +89,9 @@ void Editor::loop()
             string second;
             if(find2==find1){
                 second= originalInput.substr(find1+1);
-                cout << second << endl;
             }
             else{
                 second= originalInput.substr((find1+1),find2-find1-1);
-                                cout << second << endl;
-
             }
             this->d.replaceOldWithNew(first,second,this->currentLine-1);
 }
