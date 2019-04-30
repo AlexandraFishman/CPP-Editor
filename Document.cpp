@@ -11,12 +11,12 @@ void Document::gotP(int requestedLine)
 //%this->documentLines.size()
 
 void Document::n(int currentLine){
-    cout<< currentLine <<"    " << this->documentLines[currentLine-1]<<endl;
+    cout<< currentLine <<"        " << this->documentLines[currentLine-1]<<endl;
 }
 
-void Document::pp(){//NTT
-    for(auto& it : this->documentLines) {
-        cout << it << endl;
+void Document::pp(){
+    for(int i=0; i < this->documentLines.size(); i++) {
+        cout << this->documentLines.at(i) << endl;
     }
 }
 
@@ -64,12 +64,12 @@ void Document::d(int& currentLine){
 void Document::text(string currentString, int currentLine){
     for(int i = currentLine; i < this->documentLines.size(); i++){//current line -> end
         if(this->documentLines.at(i).find(currentString) != string::npos){
-            cout << this->documentLines.at(i) << endl;//might not need +1
+            cout << this->documentLines.at(i) << endl;
         }
     }
     for(int i = 0; i < currentLine; i++){//beginning -> current line
         if(this->documentLines.at(i).find(currentString) != string::npos){
-            cout << this->documentLines.at(i) << endl;//might not need +1
+            cout << this->documentLines.at(i) << endl;
         }
     }
 
@@ -87,8 +87,8 @@ void Document::replaceOldWithNew(string oldData, string newData, int currentLine
         }
         else{
             cout<<"?"<<endl;
-            exit(0);
-}
+            //exit(0);
+        }
 }
 
 
