@@ -41,10 +41,6 @@ void Editor::loop()
     regex sOldNew(R"(s/\w+/\w+/?)");
     while (line.compare("Q") != 0)
     {
-        // if (line.compare("a") == 0)
-        // {
-        //     this->fillingDocument();
-        // }
 
         if (isNumber(line))
         {
@@ -99,4 +95,3 @@ void Editor::loop()
     }
     exit(0);//Q "function"
 }
-

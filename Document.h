@@ -28,7 +28,7 @@ class Document
 
     void d(int& currentLine);//deletes current line, need to get from Editor
 
-    void text(string currentString, int currentLine);//searches for the input from current line all the way to current line again
+    void text(string currentString, int& currentLine);//searches for the input from current line all the way to current line again
     //if we reached the end, go to the beginning and search until we reach current line again.
     //maybe need to return something? Ask Arbel or something
 

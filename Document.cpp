@@ -57,37 +57,36 @@ void Document::c(int& currentLine){
 }
 
 void Document::d(int& currentLine){
-    this->documentLines.erase(this->documentLines.begin() + currentLine);
-    currentLine--;
+    this->documentLines.erase(this->documentLines.begin() + currentLine-1);
+    // currentLine--;
 }
 
-void Document::text(string currentString, int currentLine){
+void Document::text(string currentString, int& currentLine){
     for(int i = currentLine; i < this->documentLines.size(); i++){//current line -> end
         if(this->documentLines.at(i).find(currentString) != string::npos){
             cout << this->documentLines.at(i) << endl;
+            currentLine = i+1;
+            return;
         }
     }
     for(int i = 0; i < currentLine; i++){//beginning -> current line
         if(this->documentLines.at(i).find(currentString) != string::npos){
             cout << this->documentLines.at(i) << endl;
+            currentLine = i+1;
+            return;
         }
     }
 
 }
 
 void Document::replaceOldWithNew(string oldData, string newData, int currentLine){
-    // cout << "1" << endl;
-    // cout << "currentLine=" << currentLine << endl;
     int check= this->documentLines.at(currentLine).find(oldData);
-    // cout << "2" << endl;
         if(check!=-1){
-            // cout << "2" << endl;
             this->documentLines.at(currentLine).replace(check,oldData.size(),newData);
-            // cout << "3" << endl;
+            // cout << this->documentLines.at(currentLine) << endl;
         }
         else{
             cout<<"?"<<endl;
-            //exit(0);
         }
 }
 
