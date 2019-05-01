@@ -1,3 +1,5 @@
+/* Alex Fishman 319451514 */
+/* Elad Motzny 204093694 */
 #include "Editor.h"
 #include <iostream>
 #include <string>
